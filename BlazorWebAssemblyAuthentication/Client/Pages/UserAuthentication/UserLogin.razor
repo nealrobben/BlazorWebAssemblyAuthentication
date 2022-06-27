@@ -1,0 +1,34 @@
+﻿@using BlazorWebAssemblyAuthentication.Shared
+<h3>UserLogin</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <EditForm Model=loginModel OnSubmit=@FormSubmitted>
+            <div class="form-group">
+                <label for="UserName">Username</label>
+                <InputText @bind-Value=loginModel.UserName class="form-control" id="UserName" />
+                <ValidationMessage For="() => loginModel.UserName" />
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <InputText type="password" @bind-Value=loginModel.Password class="form-control" id="Password" />
+                <ValidationMessage For="() => loginModel.Password" />
+            </div>
+            <div class="form-group">
+                <label for="RememberMe">Remember me</label>
+                <InputText @bind-Value=loginModel.RememberMe class="form-control" id="RememberMe" />
+                <ValidationMessage For="() => loginModel.RememberMe" />
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+
+    public UserLoginModel loginModel = new UserLoginModel();
+
+    public async Task FormSubmitted(EditContext editContext)
+    {
+
+    }
+}
